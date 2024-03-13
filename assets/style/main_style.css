@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-width: 270px;
+    overflow-x: hidden;
+}
+:root {
+    --text-color-primary: #ffffff;
+    --text-color-secondary: #000000;
+    --bg-color-secondary: rgb(179, 179, 179);
+    --main-color: #094878;
+    --main-color-darker: #093b61;
+}
+@font-face {
+    font-family: 'Brettley-signature';
+    src: url(../fonts/BrettleySignatureRegular-RpEMo.ttf) format('truetype');
+}
+
+
+/* =========================================================================================== */
+/* =========================================================================================== */
+/* =========================================================================================== */
+
+
+/* main index start */
+.index_body {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+.index_body button:hover {
+    color: var(--text-color-primary) !important;
+    background: var(--main-color-darker);
+}
+/* main index end */

@@ -1,0 +1,114 @@
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+:root {
+    --text-color-primary: #ffffff;
+    --text-color-secondary: #000000;
+    --bg-color-secondary: rgb(179, 179, 179);
+    --main-color: #094878;
+    --main-color-darker: #093b61;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+body{
+    overflow: hidden;
+    background: linear-gradient(var(--text-color-primary), var(--main-color-darker));
+}
+::selection{
+    background: var(--main-color-darker);
+}
+.container{
+    min-width: 270px;
+    max-width: 440px;
+    padding: 0 20px;
+    margin: 170px auto;
+}
+.wrapper{
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px 2px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+}
+.wrapper .title{
+    height: 90px;
+    background: var(--main-color);
+    border-radius: 5px 5px 0 0;
+    color: var(--text-color-primary);
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.title img {
+    padding-top: 1rem;
+    width: 13rem;
+}
+.wrapper form{
+    padding: 30px 25px 25px 25px;
+}
+.wrapper form .row{
+    height: 45px;
+    margin-bottom: 15px;
+    position: relative;
+}
+.wrapper form .row input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-left: 60px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: none;
+}
+form .row input:focus{
+    border-color: var(--main-color);
+    box-shadow: inset 0px 0px 2px 2px var(--main-color-darker);
+}
+form .row input::placeholder{
+    color: var(--text-color-secondary);
+}
+.wrapper form .row i{
+    position: absolute;
+    width: 47px;
+    height: 100%;
+    color: #fff;
+    font-size: 18px;
+    background: var(--main-color);
+    border: 1px solid var(--main-color-darker);
+    border-radius: 5px 0 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper form .pass{
+  margin: -8px 0 20px 0;
+}
+.wrapper form .pass a{
+  color: var(--main-color);
+  font-size: 17px;
+  text-decoration: none;
+}
+.wrapper form .pass a:hover{
+    text-decoration: underline;
+}
+.wrapper form .button input{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 0px;
+    background: var(--main-color);
+    border: 1px solid var(--main-color-darker);
+    cursor: pointer;
+    border-radius: 2rem;
+}
+form .button input:hover{
+    background: var(--main-color-darker);
+}
