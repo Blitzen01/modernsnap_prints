@@ -38,10 +38,6 @@
                         <span>cosumable goods button</span><br>
                         <span>other expences button</span>
                         <hr>
-                        <p>Pricing page</p>
-                        <span>new/remove service button</span><br>
-                        <span>new/remove package button</span><br>
-                        <hr>
                         <p>gallery</p>
                         <span>add event photo botton</span><br>
                         <span>remove event photo button</span><br>
