@@ -39,9 +39,8 @@
                         <span>other expences button</span>
                         <hr>
                         <p>Pricing page</p>
-                        <span>new service button</span><br>
-                        <span>remove service button</span><br>
-                        <span>update price button</span>
+                        <span>new/remove service button</span><br>
+                        <span>new/remove package button</span><br>
                         <hr>
                         <p>gallery</p>
                         <span>add event photo botton</span><br>

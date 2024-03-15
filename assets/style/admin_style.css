@@ -16,6 +16,9 @@
 .bg-midnight-blue {
     background: var(--main-color);
 }
+.text-midnight-blue {
+    color: var(--main-color) !important;
+}
 .btn-midnight-blue {
     background: var(--main-color) !important;
     color: var(--text-color-primary) !important;

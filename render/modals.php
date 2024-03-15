@@ -521,3 +521,183 @@
     </div>
 </div>
 <!-- admin update password -->
+
+<!-- admin update package modal -->
+<?php
+    $sql = "SELECT * FROM services";
+    $result = mysqli_query($conn, $sql);
+    if($result) {
+        while($row = mysqli_fetch_assoc($result)) {
+
+?>
+    <div class="modal fade" id="update<?php echo $row['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><?php echo strtoupper($row['service']); ?></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../../assets/php_script/update_package.php" method="post">
+                    <div class="mb-3">
+                        <input type="hidden" id="package_id" name="package_id" value="<?php echo $row['id']; ?>">
+                        <label for="update_package<?php echo $row['id']; ?>"><?php echo $row['package']; ?></label>
+                        <input class="form-control" type="number" name="updated_price" id="updated_price" value="<?php echo $row['price']; ?>" required autocomplete="off">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+<?php
+        }
+    }
+?>
+<!-- admin update package modal -->
+
+<!-- add new service modal -->
+<div class="modal fade" id="add_new_service" tabindex="-1" aria-labelledby="add_new_service_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="add_new_service">Add new Service</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../../assets/php_script/add_new_service.php" method="post">
+                    <div class="mb-3">
+                        <label for="service_name">Service Name</label>
+                        <input type="text" class="form-control" id="service_name" name="service_name" required autocomplete="off" onkeyup="check_add_new_service()">
+                        <span class="fs-6 text-muted"><strong>Note: </strong> Service name should be no spaces.</span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="add_service_button" disabled="true">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- add new service modal -->
+
+<!-- add new package modal -->
+<div class="modal fade" id="add_new_package" tabindex="-1" aria-labelledby="add_new_package_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="add_new_package_label">Add new Package</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../../assets/php_script/add_new_package.php" method="post">
+                    <div class="mb-3">
+                        <label for="select_service">Select Service</label>
+                        <select class="form-select" name="select_service" id="select_service">
+                            <option value="default" selected disabled>DEFAULT</option>
+                            <?php
+                                $sql = "SELECT *  FROM service_list";
+                                $result = mysqli_query($conn, $sql);
+                                if($result) {
+                                    while($row = mysqli_fetch_assoc($result)) {      
+                            ?>
+                                        <option value="<?php echo $row['services']; ?>"><?php echo strtoupper($row['services']); ?></option>
+                            <?php
+                                    }
+                                }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="package_name">Package Name</label>
+                        <input class="form-control" type="text" id="package_name" name="package_name" required autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <label for="package_price">Package Price</label>
+                        <input class="form-control" type="number" id="package_price" name="package_price" required autocomplete="off">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- add new package modal -->
+
+<!-- remove package modal -->
+<div class="modal fade" id="remove_package" tabindex="-1" aria-labelledby="remove_package_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="remove_package">Remove Package</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../../assets/php_script/remove_package.php" method="post">
+                    <div class="mb-3">
+                        <select class="form-select" name="remove_package" id="remove_package">
+                            <option value="default" selected disabled>Default</option>
+                            <?php
+                                $sql = "SELECT *  FROM services";
+                                $result = mysqli_query($conn, $sql);
+                                if($result) {
+                                    while($row = mysqli_fetch_assoc($result)) {      
+                            ?>
+                                        <option value="<?php echo $row['package']; ?>"><?php echo strtoupper($row['package']); ?></option>
+                            <?php
+                                    }
+                                }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="remove_service" tabindex="-1" aria-labelledby="remove_service_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="remove_service">Remove Service</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../../assets/php_script/remove_service.php" method="post">
+                    <div class="mb-3">
+                        <select class="form-select" name="service" id="service">
+                            <option value="default" selected disabled>Default</option>
+                            <?php
+                                $sql = "SELECT *  FROM service_list";
+                                $result = mysqli_query($conn, $sql);
+                                if($result) {
+                                    while($row = mysqli_fetch_assoc($result)) {      
+                            ?>
+                                        <option value="<?php echo $row['services']; ?>"><?php echo strtoupper($row['services']); ?></option>
+                            <?php
+                                    }
+                                }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
