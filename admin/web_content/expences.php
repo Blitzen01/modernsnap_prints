@@ -15,7 +15,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Expences</title>
+        <title>Expenses</title>
 
         <link rel="stylesheet" href="../../assets/style/admin_style.css">
     </head>
@@ -27,9 +27,12 @@
                     <?php include '../../navigation/admin_sidebar.php'; ?>
                 </div>
                 <div id="admin_content" class="col py-3">
-                    <h3 id="analytics" class="ps-3">Expences</h3>
+                    <h3 id="analytics" class="ps-3">Expenses</h3>
                     <section class="my-2">
-                        dito nakalagay yung expences
+                        <div class="mx-3">
+                            <button class="btn btn-info"><i class="fa-solid fa-basket-shopping"></i> Consumable Goods</button>
+                            <button class="btn btn-secondary"><i class="fa-solid fa-cart-plus"></i> Other Expenses</button>
+                        </div>
                     </section>
                 </div>
             </div>

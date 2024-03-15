@@ -42,7 +42,7 @@
         <script>
             $(document).ready(function() {
                 // initialize table for booking details
-                var booking_details = $('#booking_details').DataTable({
+                $('#booking_details').DataTable({
                     responsive: {
                         details: true
                     }
@@ -50,7 +50,7 @@
                 // putting unique id for booking details
                 $('#booking_details_filter input[type="search"]').attr('id', 'booking_searchInput');
 
-                var transaction_details = $('#transaction_details').DataTable({
+                $('#transaction_details').DataTable({
                     responsive: {
                         details: true
                     }

@@ -208,45 +208,47 @@
                                 $package_result = mysqli_query($conn, $package_query);
                                 
                                 if($package_result && mysqli_num_rows($package_result) > 0) {
+                            ?>
+                                    <form action="../../assets/php_script/customize_review_booking.php" method="post">
+                            <?php
                                     while($row = mysqli_fetch_assoc($package_result)) {
-                                        ?>
-                                    <form action="../../assets/php_script/review_booking.php" method="post">
+                            ?>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="<?php echo $row['package']; ?>" id="<?php echo $row['service'] . $row['id']; ?>" name="<?php echo $row['service'] . $row['id']; ?>">
+                                            <input class="form-check-input" type="checkbox" value="<?php echo $row['package']; ?>" id="<?php echo $row['service'] . $row['id']; ?>" name="package[]">
                                             <label class="form-check-label" for="<?php echo $row['service'] . $row['id']; ?>">
                                                 <?php echo strtoupper($row['service']) . ": " . $row['package'] . " &#8369;" . $row['price']; ?>
                                             </label>
                                         </div>
-                                        <?php
+                            <?php
                                         }
                             ?>
                                         <div class="form-group mb-3 mt-2">
-                                            <label for="name" class="form-label">Name</label>
-                                            <input type="text" class="form-control" id="name" name="name" autocomplete="off" required>
+                                            <label for="customize_booking_name" class="form-label">Name</label>
+                                            <input type="text" class="form-control" id="name" name="customize_booking_name" autocomplete="off" required>
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="contact_number" class="form-label">Contact Number</label>
-                                            <input type="text" class="form-control" id="contact_number" name="contact_number" autocomplete="off" required>
+                                            <label for="customize_booking_contact_number" class="form-label">Contact Number</label>
+                                            <input type="text" class="form-control" id="customize_booking_contact_number" name="customize_booking_contact_number" autocomplete="off" required>
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="email" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="email" name="email" autocomplete="off" required>
+                                            <label for="customize_booking_email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="customize_booking_email" name="customize_booking_email" autocomplete="off" required>
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="event_location" class="form-label">Event Location</label>
-                                            <input type="text" class="form-control" id="event_location" name="event_location" autocomplete="off" required>
+                                            <label for="customize_booking_event_location" class="form-label">Event Location</label>
+                                            <input type="text" class="form-control" id="customize_booking_event_location" name="customize_booking_event_location" autocomplete="off" required>
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="date">Date:</label>
-                                            <input type="date" class="form-control" name="date">
+                                            <label for="customize_booking_date">Date:</label>
+                                            <input type="date" class="form-control" name="customize_booking_date">
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="starttiem">From:</label>
-                                            <input type="time" class="form-control" name="starttime">
+                                            <label for="customize_booking_starttime">From:</label>
+                                            <input type="time" class="form-control" name="customize_booking_starttime">
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="endtime">To:</label>
-                                            <input type="time" class="form-control" name="endtime">
+                                            <label for="customize_booking_endtime">To:</label>
+                                            <input type="time" class="form-control" name="customize_booking_endtime">
                                         </div>
                                         
                                         <div class="modal-footer">
@@ -666,7 +668,9 @@
         </div>
     </div>
 </div>
+<!-- remove package modal -->
 
+<!-- remove service modal -->
 <div class="modal fade" id="remove_service" tabindex="-1" aria-labelledby="remove_service_label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -698,6 +702,71 @@
                     </div>
                 </form>
             </div>
+        </div>
+    </div>
+</div>
+<!-- remove service modal -->
+
+<!-- upload photos to gallery modal -->
+<div class="modal fade" id="upload_photo_to_gallery_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Select File to upload</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../../assets/php_script/upload_to_gallery.php" method="post" id="uploadForm" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <select class="form-select" name="upload_select_service" id="upload_select_service">
+                            <option value="defaut" disabled selected>DEFAULT</option>
+                            <?php
+                                $sql = "SELECT services FROM service_list";
+                                $result = mysqli_query($conn, $sql);
+
+                                if($result) {
+                                    while($row = mysqli_fetch_assoc($result)) {
+                            ?>
+                                        <option value="<?php echo $row['services']; ?>"><?php echo strtoupper($row['services']); ?></option>
+                            <?php
+                                    }
+                                }
+                            ?>
+                        </select>
+                    </div>
+                    <input class="form-control" type="file" name="images[]" accept="image/*" multiple>
+                    <div class="modal-footer">
+                        <button id="upload_image_to_gallery_form_button" type="submit" class="btn btn-primary" disabled="true">Upload</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                    <div id="errorMessage" class="hidden">Maximum 5 images allowed</div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- upload photos to gallery modal -->
+
+
+<div class="modal fade" id="remove_photo_modal" tabindex="-1" aria-labelledby="remove_photo_modal_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="remove_photo_modal_label">Remove Photo</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <form action="../../assets/php_script/remove_photo.php" method="post">
+                    <img id="modal-image" src="" class="img-fluid" style="width:50%;">
+                    <p type="text" id="modal-file-name" name="file_name"></p>
+                    <input type="hidden" name="file_name" id="modal-file-name-input">
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+            
         </div>
     </div>
 </div>

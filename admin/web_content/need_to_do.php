@@ -37,11 +37,6 @@
                         <span>layout and display</span><br>
                         <span>cosumable goods button</span><br>
                         <span>other expences button</span>
-                        <hr>
-                        <p>gallery</p>
-                        <span>add event photo botton</span><br>
-                        <span>remove event photo button</span><br>
-                        <span>display all photos</span>
                     </section>
                 </div>
             </div>
