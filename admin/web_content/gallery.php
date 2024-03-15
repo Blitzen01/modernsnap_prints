@@ -15,7 +15,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Expences</title>
+        <title>Gallery</title>
 
         <link rel="stylesheet" href="../../assets/style/admin_style.css">
     </head>
@@ -27,9 +27,9 @@
                     <?php include '../../navigation/admin_sidebar.php'; ?>
                 </div>
                 <div id="admin_content" class="col py-3">
-                    <h3 id="analytics" class="ps-3">Expences</h3>
+                    <h3 id="analytics" class="ps-3">Gallery</h3>
                     <section class="my-2">
-                        dito nakalagay yung expences
+                        dito nakalagay yung mga picture ng bawat event
                     </section>
                 </div>
             </div>

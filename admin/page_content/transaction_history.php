@@ -1,5 +1,5 @@
 <section class="mx-3">
-    <table id="transaction_details" class="table table-sm table-striped compact table-hover">
+    <table id="transaction_details" class="table table-sm nowrap table-striped compact table-hover">
         <thead class="table-primary">
             <tr>
                 <th>Name</th>

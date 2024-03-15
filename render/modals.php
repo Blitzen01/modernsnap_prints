@@ -45,12 +45,12 @@
                 <form action="../../assets/php_script/inventory_new_item.php" method="post">
                     <div class="mb-3">
                         <label for="item_name">Item:</label>
-                        <input type="text" name="item_name" class="form-control" autocomplete="off" required>
+                        <input type="text" name="item_name" id="item_name" class="form-control" autocomplete="off" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="item_quantity">Quantity:</label>
-                        <input type="number" name="item_quantity" class="form-control" autocomplete="off" required>
+                        <input type="number" name="item_quantity" id="item_quantity" class="form-control" autocomplete="off" required>
                     </div>
                 
                     <div class="modal-footer">
@@ -157,15 +157,15 @@
                                             <input type="text" class="form-control" id="event_location" name="event_location" autocomplete="off" required>
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="datepicker">Date:</label>
+                                            <label for="date">Date:</label>
                                             <input type="date" class="form-control" name="date">
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="starttimepicker">From:</label>
+                                            <label for="starttime">From:</label>
                                             <input type="time" class="form-control" name="starttime">
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="endtimepicker">To:</label>
+                                            <label for="endtime">To:</label>
                                             <input type="time" class="form-control" name="endtime">
                                         </div>
                                         
@@ -212,7 +212,7 @@
                                         ?>
                                     <form action="../../assets/php_script/review_booking.php" method="post">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="<?php echo $row['package']; ?>" id="<?php echo $row['service'] . $row['id']; ?>" name="package[]">
+                                            <input class="form-check-input" type="checkbox" value="<?php echo $row['package']; ?>" id="<?php echo $row['service'] . $row['id']; ?>" name="<?php echo $row['service'] . $row['id']; ?>">
                                             <label class="form-check-label" for="<?php echo $row['service'] . $row['id']; ?>">
                                                 <?php echo strtoupper($row['service']) . ": " . $row['package'] . " &#8369;" . $row['price']; ?>
                                             </label>
@@ -237,15 +237,15 @@
                                             <input type="text" class="form-control" id="event_location" name="event_location" autocomplete="off" required>
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="datepicker">Date:</label>
+                                            <label for="date">Date:</label>
                                             <input type="date" class="form-control" name="date">
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="starttimepicker">From:</label>
+                                            <label for="starttiem">From:</label>
                                             <input type="time" class="form-control" name="starttime">
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="endtimepicker">To:</label>
+                                            <label for="endtime">To:</label>
                                             <input type="time" class="form-control" name="endtime">
                                         </div>
                                         
@@ -322,3 +322,202 @@
     }
 ?>
 <!-- finish booking modal -->
+
+<!-- add operator modal -->
+<div class="modal fade" id="add_operator_modal" tabindex="-1" aria-labelledby="add_operator_modal_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-midnight-blue text-light">
+                <h1 class="modal-title fs-5" id="add_operator_modal_label">Operator form</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../../assets/php_script/add_operator.php" method="post">
+                    <div class="mb-3">
+                        <label for="name">Name</label>
+                        <input class="form-control" type="text" name="name" id="name" autocomplete="off" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="username">Username</label>
+                        <input class="form-control" type="text" name="username" id="username" autocomplete="off" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password">Password</label>
+                        <input class="form-control" type="password" name="password" id="password" autocomplete="off" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirm_password">Confirm Password</label>
+                        <input class="form-control" type="password" name="confirm_password" id="confirm_password" onkeyup="check_confirm_password()" autocomplete="off" required>
+                        <span id="password_match_confirm"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contact_number">Contact Number</label>
+                        <input class="form-control" type="text" name="contact_number" id="contact_number" autocomplete="off" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="add_operator_button" type="submit" class="btn btn-primary" disabled="true">Add</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- add operator modal -->
+
+<div class="modal fade" id="update_profile_picture_modal" tabindex="-1" aria-labelledby="update_profile_picture_modal_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="update_profile_picture_modal_label">Upload Picture</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../../assets/php_script/admin_upload_profile_picture.php" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <input class="form-control" name="file" type="file" id="formFile">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- remove operator -->
+<div class="modal fade" id="remove_operator_modal" tabindex="-1" aria-labelledby="remove_operator_modal_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="remove_operator_modal_label">Remove Operator</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../../assets/php_script/remove_operator.php" method="post">
+                    <div class="mb-3">
+                        <select class="form-select" name="operator" id="operator">
+                            <option value="default" disabled selected>Default</option>
+                            <?php
+                                $sql = "SELECT * FROM account WHERE permission = 'operator'";
+                                $result = mysqli_query($conn, $sql);
+
+                                if($result) {
+                                    while($row = mysqli_fetch_assoc($result)){
+                            ?>
+                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                            <?php
+                                    }
+                                }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- remove operator -->
+
+<!-- admin update profile -->
+<div class="modal fade" id="update_profile_information_modal_label" tabindex="-1" aria-labelledby="update_profile_information_modal_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="update_profile_information_modal_label">Upadate Profile Information</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <?php
+                    $sql = "SELECT * FROM account WHERE username = '$username'";
+                    $result = mysqli_query($conn, $sql);
+
+                    if($result) {
+                        while($row = mysqli_fetch_assoc($result)) {
+                ?>
+                    <form action="../../assets/php_script/admin_update_profile_info.php" method="post">
+                        <div class="mb-3">
+                            <label for="account_name">Name</label>
+                            <input class="form-control" type="text" name="account_name" id="account_name" value="<?php echo $row['name']; ?>" required autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="account_username">Username</label>
+                            <input class="form-control" type="text" name="account_username" id="account_username" value="<?php echo $row['username']; ?>" required autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="account_contact_number">Contact Number</label>
+                            <input class="form-control" type="text" name="account_contact_number" id="account_contact_number" value="<?php echo $row['contact_number']; ?>" required autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="account_birthday">Birthday</label>
+                            <input class="form-control" type="date" name="account_birthday" id="account_birthday" value="<?php echo $row['birthday']; ?>" required autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="account_gender">Birthday</label>
+                            <select class="form-select" name="account_gender" id="account_gender">
+                                <option value="default" disabled <?php if ($row['gender'] == 'default') echo 'selected'; ?>>Default</option>
+                                <option value="male" <?php if ($row['gender'] == 'male') echo 'selected'; ?>>Male</option>
+                                <option value="female" <?php if ($row['gender'] == 'female') echo 'selected'; ?>>Female</option>
+                                <option value="other" <?php if ($row['gender'] == 'other') echo 'selected'; ?>>Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="account_bio">Bio</label>
+                            <textarea class="form-control" type="text" name="account_bio" id="account_bio" cols="30" rows="3" style="resize:none;" required autocomplete="off"><?php echo $row['bio']; ?></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                <?php
+                        }
+                    }
+                ?>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- admin update profile -->
+
+<!-- admin update password -->
+<div class="modal fade" id="change_password_modal" tabindex="-1" aria-labelledby="change_password_modal_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="change_password_modal_label">Change Password</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../../assets/php_script/admin_update_password.php" method="post">
+                    <div class="mb-3">
+                        <label for="account_password">Password</label>
+                        <input class="form-control" type="password" name="account_password" id="account_password" onkeyup="check_account_password()">
+                        <span id="check_account_password"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="account_new_password">New Password</label>
+                        <input class="form-control" type="password" name="account_new_password" id="account_new_password" disabled="true" onkeyup="check_new_password()">
+                        <span id="check_new_password"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="account_confirm_new_password">Confirm New Password</label>
+                        <input class="form-control" type="password" name="account_confirm_new_password" id="account_confirm_new_password" disabled="true" onkeyup="check_confirm_new_password()">
+                        <span id="check_confirm_new_password"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="save_new_password" disabled="true">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- admin update password -->

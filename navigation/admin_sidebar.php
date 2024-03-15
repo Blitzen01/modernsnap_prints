@@ -62,14 +62,21 @@
     </div>
 </div> -->
 
-<?php include '../../render/modals.php'; ?>
+<?php
+    include '../../render/modals.php';
+    
+    $username = $_SESSION['username'];
+    $permission = $_SESSION['permission'];
+    
+    $displayStyle = ($permission === 'owner') ? 'block' : 'none';
+?>
 
 <div id="sidebar">
     <div class="text-center border-bottom border-secondary">
         <img id="sidebar_logo" src="../../assets/image/sidebar_logo_no_bg.png" alt="" srcset="">
     </div>
     <div class="text-center border-bottom border-secondary">
-        <span>Admin: <strong>name</strong></span>
+        <span>Admin: <strong><?php echo strtoupper($username); ?></strong></span>
     </div>
     <div id="sidebar_nav" class="pt-3 d-none d-md-block">
         <a href="../web_content/event_calendar.php" class="nav-link d-flex">
@@ -92,43 +99,75 @@
                 </div>
             </div>
         </a>
-        <a href="../web_content/booking.php" class="nav-link d-flex">
+        <div id="check_permission" style="display:<?php echo $displayStyle; ?>">
+            <a href="../web_content/booking.php" class="nav-link d-flex">
+                <div class="row">
+                    <div class="col-1">
+                        <div class=""><i class="fa-solid fa-book"></i></div>
+                    </div>
+                    <div class="col">
+                        <div><span>Booking</span></div>
+                    </div>
+                </div>
+            </a>
+            <a href="../web_content/inventory.php" class="nav-link d-flex">
+                <div class="row">
+                    <div class="col-1">
+                        <div class=""><i class="fa-solid fa-boxes-stacked"></i></div>
+                    </div>
+                    <div class="col">
+                        <div><span>Inventory</span></div>
+                    </div>
+                </div>
+            </a>
+            <a href="../web_content/pricing.php" class="nav-link d-flex">
+                <div class="row">
+                    <div class="col-1">
+                        <div class=""><i class="fa-solid fa-peso-sign"></i></div>
+                    </div>
+                    <div class="col">
+                        <div><span>Pricing</span></div>
+                    </div>
+                </div>
+            </a>
+            <a href="../web_content/expences.php" class="nav-link d-flex">
+                <div class="row">
+                    <div class="col-1">
+                        <div class=""><i class="fa-solid fa-money-bill"></i></div>
+                    </div>
+                    <div class="col">
+                        <div><span>Expences</span></div>
+                    </div>
+                </div>
+            </a>
+            <a href="../web_content/operator.php" class="nav-link d-flex">
+                <div class="row">
+                    <div class="col-1">
+                        <div class=""><i class="fa-solid fa-address-card"></i></div>
+                    </div>
+                    <div class="col">
+                        <div><span>Operator</span></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <a href="../web_content/gallery.php" class="nav-link d-flex">
             <div class="row">
                 <div class="col-1">
-                    <div class=""><i class="fa-solid fa-book"></i></div>
+                    <div class=""><i class="fa-solid fa-images"></i></div>
                 </div>
                 <div class="col">
-                    <div><span>Booking</span></div>
+                    <div><span>Gallery</span></div>
                 </div>
             </div>
         </a>
-        <a href="../web_content/inventory.php" class="nav-link d-flex">
+        <a href="../web_content/account_settings.php" class="nav-link d-flex">
             <div class="row">
                 <div class="col-1">
-                    <div class=""><i class="fa-solid fa-boxes-stacked"></i></div>
+                    <div class=""><i class="fa-solid fa-user"></i></div>
                 </div>
                 <div class="col">
-                    <div><span>Inventory</span></div>
-                </div>
-            </div>
-        </a>
-        <a href="../web_content/pricing.php" class="nav-link d-flex">
-            <div class="row">
-                <div class="col-1">
-                    <div class=""><i class="fa-solid fa-peso-sign"></i></div>
-                </div>
-                <div class="col">
-                    <div><span>Pricing</span></div>
-                </div>
-            </div>
-        </a>
-        <a href="../web_content/expences.php" class="nav-link d-flex">
-            <div class="row">
-                <div class="col-1">
-                    <div class=""><i class="fa-solid fa-money-bill"></i></div>
-                </div>
-                <div class="col">
-                    <div><span>Expences</span></div>
+                    <div><span>Account Settings</span></div>
                 </div>
             </div>
         </a>
@@ -142,7 +181,7 @@
                 </div>
             </div>
         </a>
-        <a href="../index.php" class="nav-link">
+        <a href="../../assets/php_script/admin_logout.php" class="nav-link">
             <div class="row">
                 <div class="col-1">
                     <div class=""><i class="fa-solid fa-power-off"></i></div>
@@ -171,29 +210,46 @@
                         <i class="fa-solid fa-gauge"></i> Dashboard
                     </a>
                 </li>
+                <div id="check_permission" style="display:<?php echo $displayStyle; ?>">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../web_content/booking.php">
+                            <i class="fa-solid fa-book"></i> Booking
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../web_content/inventory.php">
+                            <i class="fa-solid fa-boxes-stacked"></i> Inventory
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../web_content/pricing.php">
+                            <i class="fa-solid fa-peso-sign"></i> Pricing
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../web_content/expences.php">
+                            <i class="fa-solid fa-money-bill"></i> Expences
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../web_content/operator.php">
+                            <i class="fa-solid fa-address-card"></i> Operator
+                        </a>
+                    </li>
+                </div>
                 <li class="nav-item">
-                    <a class="nav-link" href="../web_content/booking.php">
-                        <i class="fa-solid fa-book"></i> Booking
+                    <a class="nav-link" href="../web_content/gallery.php">
+                        <i class="fa-solid fa-images"></i> Gallery
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../web_content/inventory.php">
-                        <i class="fa-solid fa-boxes-stacked"></i> Inventory
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../web_content/pricing.php">
-                        <i class="fa-solid fa-peso-sign"></i> Pricing
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../web_content/expences.php">
-                        <i class="fa-solid fa-money-bill"></i> Expences
+                    <a class="nav-link" href="../web_content/account_settings.php">
+                        <i class="fa-solid fa-user"></i> Account Settings
                     </a>
                 </li>
                 <!-- Other menu items follow the same structure -->
                 <li class="nav-item">
-                    <a class="nav-link" href="../index.php">
+                    <a class="nav-link" href="../../assets/php_script/admin_logout.php">
                         <i class="fa-solid fa-power-off"></i> Logout
                     </a>
                 </li>

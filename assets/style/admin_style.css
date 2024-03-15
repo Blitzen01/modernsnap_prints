@@ -88,9 +88,43 @@
     z-index: 2000;
 }
 
+/* admin operator */
+#add_operator_button {
+    display: hidden;
+}
+
+/* admin profile */
+#square-image-container {
+    width: 100%; /* Adjust this percentage as needed */
+    padding-top: 100%; /* This will make the height equal to the width, creating a square */
+    position: relative;
+    overflow: hidden;
+}
+
+#square-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 @media screen and (max-width: 600px) {
     #sidebar_content {
         height: auto;
         margin-bottom: 2rem;
+    }
+    #square-image-container {
+        width: 100%; /* Adjust this percentage as needed */
+        padding-top: 100%; /* This will make the height equal to the width, creating a square */
+        position: relative;
+        overflow: hidden;
+    }
+    #square-image-container img {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 80%;
     }
 }

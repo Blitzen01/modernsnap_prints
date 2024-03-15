@@ -2,6 +2,12 @@
     include '../../assets/fonts/fonts.php';
     include '../../assets/cdn/cdn_links.php';
     include '../../render/connection.php';
+
+    session_start();
+    if (!isset($_SESSION['username'])) {
+        header("Location: ../index.php"); // Redirect to the index if not logged in
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -23,23 +29,24 @@
                 <div id="admin_content" class="col py-3">
                     <h3 id="analytics" class="ps-3">To Do</h3>
                     <section class="my-2">
-                        <p>login and logout</p>
-                        <span>database</span><br>
-                        <span>user session</span><br>
-                        <span>forget password</span>
-                        <hr>
                         <p>Dashboard Responsiveness</p>
                         <span>buttons and displays</span><br>
                         <span>total expences display</span>
                         <hr>
                         <p>expences page</p>
-                        <span>layout and display</span>
+                        <span>layout and display</span><br>
+                        <span>cosumable goods button</span><br>
+                        <span>other expences button</span>
                         <hr>
                         <p>Pricing page</p>
                         <span>new service button</span><br>
                         <span>remove service button</span><br>
                         <span>update price button</span>
                         <hr>
+                        <p>gallery</p>
+                        <span>add event photo botton</span><br>
+                        <span>remove event photo button</span><br>
+                        <span>display all photos</span>
                     </section>
                 </div>
             </div>

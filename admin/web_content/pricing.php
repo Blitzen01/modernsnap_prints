@@ -2,6 +2,12 @@
     include '../../assets/fonts/fonts.php';
     include '../../assets/cdn/cdn_links.php';
     include '../../render/connection.php';
+
+    session_start();
+    if (!isset($_SESSION['username'])) {
+        header("Location: ../index.php"); // Redirect to the index if not logged in
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +28,14 @@
                 </div>
                 <div id="admin_content" class="col py-3">
                     <h3 class="ps-3">Pricing</h3>
-                    <button class="btn btn-success ms-5" data-bs-toggle="modal" data-bs-target="#"><i class="fa-solid fa-square-plus"></i> New Service</button>
+
+                    <button class="btn btn-info ms-5" data-bs-toggle="modal" data-bs-target="#"><i class="fa-solid fa-box"></i> New Package</button>
+                    <button class="btn btn-danger ms-3" data-bs-toggle="modal" data-bs-target="#"><i class="fa-solid fa-trash"></i> Remove Package</button>
+                    <section>
+                        
+                    </section>
+
+                    <button class="btn btn-info ms-5" data-bs-toggle="modal" data-bs-target="#"><i class="fa-solid fa-square-plus"></i> New Service</button>
                     <button class="btn btn-danger ms-3" data-bs-toggle="modal" data-bs-target="#"><i class="fa-solid fa-trash"></i> Remove Service</button>
                     <section>
                         <div class="row text-center mb-5 p-4">

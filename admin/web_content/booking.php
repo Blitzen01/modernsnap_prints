@@ -2,6 +2,12 @@
     include '../../assets/fonts/fonts.php';
     include '../../assets/cdn/cdn_links.php';
     include '../../render/connection.php';
+
+    session_start();
+    if (!isset($_SESSION['username'])) {
+        header("Location: ../index.php"); // Redirect to the index if not logged in
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -35,10 +41,22 @@
 
         <script>
             $(document).ready(function() {
+                // initialize table for booking details
                 var booking_details = $('#booking_details').DataTable({
-                    scrollX: true
+                    responsive: {
+                        details: true
+                    }
                 });
-                var booking_details = $('#transaction_details').DataTable();
+                // putting unique id for booking details
+                $('#booking_details_filter input[type="search"]').attr('id', 'booking_searchInput');
+
+                var transaction_details = $('#transaction_details').DataTable({
+                    responsive: {
+                        details: true
+                    }
+                });
+                // putting unique id for booking details
+                $('#transaction_details_filter input[type="search"]').attr('id', 'transaction_searchInput');
             });
             
         </script>

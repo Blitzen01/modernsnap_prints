@@ -1,6 +1,44 @@
 <?php
+    include '../render/connection.php';
     include '../assets/fonts/fonts.php';
     include '../assets/cdn/cdn_links.php';
+    
+    session_start();
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+    
+        // Query to select user from the database
+        $sql = "SELECT * FROM account WHERE username = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    
+        if ($result->num_rows == 1) {
+            $row = $result->fetch_assoc();
+            if (password_verify($password, $row['password'])) {
+                // Password matches, set session variables
+                $_SESSION['username'] = $row['username'];
+                $_SESSION['password'] = $password;
+                $_SESSION['permission'] = $row['permission'];
+    
+                // Redirect to dashboard or any other page after successful login
+                header("Location: web_content/event_calendar.php");
+                exit();
+            } else {
+                // Invalid password
+                $error = "Invalid username or password.";
+            }
+        } else {
+            // Invalid username
+            $error = "Invalid username or password.";
+        }
+    
+        // Close statement
+        $stmt->close();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -15,25 +53,22 @@
     <body>
         <div class="container">
             <div class="wrapper">
-                    <div class="title">
-                        <img src="../assets/image/modernsnaplogo_no_bg.png" alt="" srcset="">
+                <div class="title">
+                    <img src="../assets/image/modernsnaplogo_no_bg.png" alt="" srcset="">
+                </div>
+                <form action="#" method="post">
+                    <div class="row">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" name="username" autocomplete="off" required>
                     </div>
-                    <form action="#" method="post">
-                        <div class="row">
-                            <i class="fas fa-user"></i>
-                            <input type="text" placeholder="Username" required>
-                        </div>
-                        <div class="row">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Password" required>
-                        </div>
-                        <div class="pass"><a href="#">Forgot password?</a></div>
-                        <div class="row button">
-                            <input type="submit" value="Login">
-                        </div>
-                    </form>
-                    
-        <a href="web_content/dashboard.php" class="text-light">dashboard</a>
+                    <div class="row">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" name="password" autocomplete="off" required>
+                    </div>
+                    <div class="row button">
+                        <input type="submit" value="Login">
+                    </div>
+                </form>
             </div>
         </div>
     </body>
