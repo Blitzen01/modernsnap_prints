@@ -8,9 +8,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Sanitize and validate the input data
         $itemName = mysqli_real_escape_string($conn, $_POST['item_name']);
         $itemQuantity = intval($_POST['item_quantity']); // Assuming item_quantity is an integer
+        $itemUnit = $_POST['item_unit'];
 
         // Insert the new item into the database
-        $sql = "INSERT INTO inventory (item, quantity) VALUES ('$itemName', '$itemQuantity')";
+        $sql = "INSERT INTO inventory (item, unit, quantity) VALUES ('$itemName', '$itemUnit', '$itemQuantity')";
         $result = mysqli_query($conn, $sql);
 
         // Check if the query was successful

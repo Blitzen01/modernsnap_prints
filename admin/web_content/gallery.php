@@ -38,7 +38,6 @@
                             <button class="btn btn-midnight-blue" data-bs-toggle="modal" data-bs-target="#upload_photo_to_gallery_modal">
                                 <i class="fa-regular fa-images"></i> Add Picture
                             </button>
-                            <button class="btn btn-danger" id="removePhotoBtn">Remove Photo</button>
                         </div>
 
                         <div class="row text-center" id="photoGallery">

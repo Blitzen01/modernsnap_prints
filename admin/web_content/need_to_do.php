@@ -32,11 +32,6 @@
                         <p>Dashboard Responsiveness</p>
                         <span>buttons and displays</span><br>
                         <span>total expences display</span>
-                        <hr>
-                        <p>expences page</p>
-                        <span>layout and display</span><br>
-                        <span>cosumable goods button</span><br>
-                        <span>other expences button</span>
                     </section>
                 </div>
             </div>

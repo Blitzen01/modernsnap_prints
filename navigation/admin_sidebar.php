@@ -130,13 +130,13 @@
                     </div>
                 </div>
             </a>
-            <a href="../web_content/expences.php" class="nav-link d-flex">
+            <a href="../web_content/expenses.php" class="nav-link d-flex">
                 <div class="row">
                     <div class="col-1">
                         <div class=""><i class="fa-solid fa-money-bill"></i></div>
                     </div>
                     <div class="col">
-                        <div><span>Expences</span></div>
+                        <div><span>Expenses</span></div>
                     </div>
                 </div>
             </a>
@@ -227,8 +227,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../web_content/expences.php">
-                            <i class="fa-solid fa-money-bill"></i> Expences
+                        <a class="nav-link" href="../web_content/expenses.php">
+                            <i class="fa-solid fa-money-bill"></i> Expenses
                         </a>
                     </li>
                     <li class="nav-item">

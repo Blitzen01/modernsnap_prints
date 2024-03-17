@@ -12,6 +12,10 @@ include '../fonts/fonts.php';
         $date = $_POST['date'];
         $starttime = $_POST['starttime'];
         $endtime = $_POST['endtime'];
+
+        $formatted_date = date('F d, Y', strtotime($date));
+        $formatted_start_time = date('h:i A', strtotime($starttime));
+        $formatted_end_time = date('h:i A', strtotime($endtime));
     }
 ?>
 
@@ -51,15 +55,15 @@ include '../fonts/fonts.php';
                     </div>
                     <div class="row m-1">
                         <div class="col-lg-4 col-sm-11">
-                            <strong>Date: </strong> <?php echo $date; ?>
+                            <strong>Date: </strong> <?php echo $formatted_date; ?>
                             <input type="hidden" name="date" value="<?php echo $date; ?>">
                         </div>
                         <div class="col-lg-4 col-sm-11">
-                            <strong>Start Time: </strong> <?php echo $starttime; ?>
+                            <strong>Start Time: </strong> <?php echo $formatted_start_time; ?>
                             <input type="hidden" name="starttime" value="<?php echo $starttime; ?>">
                         </div>
                         <div class="col-lg-4 col-sm-11">
-                            <strong>End Time: </strong> <?php echo $endtime; ?>
+                            <strong>End Time: </strong> <?php echo $formatted_end_time; ?>
                             <input type="hidden" name="endtime" value="<?php echo $endtime; ?>">
                         </div>
                     </div>

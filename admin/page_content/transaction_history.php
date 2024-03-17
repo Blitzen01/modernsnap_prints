@@ -11,6 +11,7 @@
                 <th>End Time</th>
                 <th>Package</th>
                 <th>Total Price</th>
+                <th>Operator</th>
             </tr>
         </thead>
         <tbody>
@@ -34,6 +35,7 @@
                             <td><?php echo $formatted_end_time; ?></td>
                             <td><?php echo $row['package']; ?></td>
                             <td><?php echo "&#8369;" . $row['total_price']; ?></td>
+                            <td><?php echo $row['operator']; ?></td>
                         </tr>
             <?php
                     }

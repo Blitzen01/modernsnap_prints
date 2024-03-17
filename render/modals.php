@@ -52,7 +52,14 @@
                         <label for="item_quantity">Quantity:</label>
                         <input type="number" name="item_quantity" id="item_quantity" class="form-control" autocomplete="off" required>
                     </div>
-                
+                    
+                    <div class="mb-3">
+                        <select name="item_unit" id="item_unit">
+                            <option value="default" disabled selected>Default</option>
+                            <option value="pack">Pack</option>
+                            <option value="pc(s)">Piece</option>
+                        </select>
+                    </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save changes</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -269,6 +276,86 @@
 ?>
 <!-- customize booking modal -->
 
+<!-- select operator modal -->
+<?php
+    $sql = "SELECT * FROM booking";
+    $result = mysqli_query($conn, $sql);
+
+    if($result) {
+        while($row = mysqli_fetch_assoc($result)) {
+            $formatted_date = date('F d, Y', strtotime($row['date']));
+            $formatted_start_time = date('h:i A', strtotime($row['start_time']));
+            $formatted_end_time = date('h:i A', strtotime($row['end_time']));
+?>
+            <div class="modal fade" id="booking_operator_<?php echo $row['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Select Booking Operator</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <span><strong>Name: </strong> <?php echo $row['name']; ?></span><br>
+                            <span><strong>Contact Number: </strong> <?php echo $row['contact_number']; ?></span><br>
+                            <span><strong>Email: </strong> <?php echo $row['email']; ?></span><br>
+                            <span><strong>Event Location: </strong> <?php echo $row['event_location']; ?></span><br>
+                            <span><strong>Date: </strong> <?php echo $formatted_date; ?></span><br>
+                            <span><strong>Start Time: </strong> <?php echo $formatted_start_time; ?></span><br>
+                            <span><strong>End Time: </strong> <?php echo $formatted_end_time; ?></span><br>
+                            <span><strong>Package: </strong> <?php echo $row['package']; ?></span><br>
+                            <span><strong>Total Price: </strong> <?php echo $row['total_price']; ?></span><br>
+                            <hr>
+                            <form action="../../assets/php_script/update_booking_operator.php" method="post">
+                                <div class="mb-3">
+                                    <label for="select_operator">Select Operator</label>
+                                    <input type="hidden" value="<?php echo $row['id']; ?>" name="booking_id" id="booking_id">
+                                    <select name="select_operator" id="select_operator" class="form-select">
+                                        <option value="default" disabled selected>Default</option>
+                                        <?php
+                                        $sql_operator = "SELECT * FROM account";
+                                        $result_operator = mysqli_query($conn, $sql_operator);
+                                        if($result_operator) {
+                                            while($row_operator = mysqli_fetch_assoc($result_operator)) {
+                                                ?>
+                                                <option value="<?php echo $row_operator['name']; ?>"><?php echo $row_operator['name']; ?></option>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="mb-3">    
+                                    <label for="select_second_operator">Select 2nd Operator</label>
+                                    <select name="select_second_operator" id="select_second_operator" class="form-select">
+                                        <option value="default" disabled selected>Default</option>
+                                        <?php
+                                        $sql_operator = "SELECT * FROM account";
+                                        $result_operator = mysqli_query($conn, $sql_operator);
+                                        if($result_operator) {
+                                            while($row_operator = mysqli_fetch_assoc($result_operator)) {
+                                                ?>
+                                                <option value="<?php echo $row_operator['name']; ?>"><?php echo $row_operator['name']; ?></option>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<?php
+        }
+    }
+?>
+<!-- select operator modal -->
+
 <!-- finish booking modal -->
 <?php
     $sql = "SELECT * FROM booking";
@@ -299,17 +386,26 @@
                                 <input type="hidden" name="end_time" value="<?php echo $row['end_time']; ?>">
                                 <input type="hidden" name="package" value="<?php echo $row['package']; ?>">
                                 <input type="hidden" name="total_price" value="<?php echo $row['total_price']; ?>">
+                                <input type="hidden" name="operator" value="<?php echo $row['operator']; ?>">
 
                                 <span><strong>Name: </strong></span> <?php echo $row['name']; ?> <br>
                                 <span><strong>Contact Number: </strong></span> <?php echo $row['contact_number']; ?> <br>
                                 <span><strong>Email: </strong></span> <?php echo $row['email']; ?> <br>
                                 <span><strong>Event Location: </strong></span> <?php echo $row['event_location']; ?> <br>
-                                <span><strong>Date: </strong></span> <?php echo $row['date']; ?> <br>
-                                <span><strong>Start Time: </strong></span> <?php echo $row['start_time']; ?> <br>
-                                <span><strong>End Time: </strong></span> <?php echo $row['end_time']; ?> <br>
+                                <span><strong>Date: </strong></span> <?php echo $formatted_date; ?> <br>
+                                <span><strong>Start Time: </strong></span> <?php echo $formatted_start_time; ?> <br>
+                                <span><strong>End Time: </strong></span> <?php echo $formatted_end_time; ?> <br>
                                 <span><strong>Package: </strong></span> <?php echo $row['package']; ?> <br>
                                 <span><strong>Total Price: </strong></span> <?php echo $row['total_price']; ?> <br>
-
+                                <span><strong>Operator: </strong></span> <?php echo $row['operator']; ?> <br>
+                                <div class="mb-3">
+                                    <label for="operator_commission">Commission</label>
+                                    <input type="text" name="operator_commission" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="transpo_gas">Transportation/Gas</label>
+                                    <input type="text" name="transpo_gas" class="form-control" required>
+                                </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-midnight-blue">Finish</button>
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -747,7 +843,7 @@
 </div>
 <!-- upload photos to gallery modal -->
 
-
+<!-- remove photo modal -->
 <div class="modal fade" id="remove_photo_modal" tabindex="-1" aria-labelledby="remove_photo_modal_label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -770,3 +866,105 @@
         </div>
     </div>
 </div>
+<!-- remove photo modal -->
+
+<!-- add purchase item modal -->
+<div class="modal fade" id="add_cosumable_goods" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-midnight-blue text-light">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Purchase Item</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../../assets/php_script/insert_expenses.php" method="post">
+                    <div class="mb-3">
+                        <label for="">Item Name</label>
+                        <select name="item_name" id="item_name" class="form-select">
+                            <option value="default" disabled selected>Default</option>
+                            <?php
+                                $sql = "SELECT * FROM inventory";
+                                $result = mysqli_query($conn, $sql);
+
+                                if($result) {
+                                    while($row = mysqli_fetch_assoc($result)) {
+                            ?>
+                                        <option value="<?php echo $row['item']; ?>"><?php echo $row['item']; ?></option>
+                            <?php
+                                    }
+                                }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Unit</label>
+                        <select name="unit" id="unit" class="form-select">
+                            <option value="default" disabled selected>Default</option>
+                            <option value="pack">Pack</option>
+                            <option value="pc(s)">Pc(s)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Unit Price</label>
+                        <input type="number" name="unit_price" class="form-control" required autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Quantity</label>
+                        <input type="number" name="quantity" class="form-control" required autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Date Purchase</label>
+                        <input type="date" name="date_purchase" class="form-control" required autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Remarks</label>
+                        <select name="remarks" id="remarks" class="form-select">
+                            <option value="default" disabled selected>Default</option>
+                            <option value="pending">Pending</option>
+                            <option value="paid">Paid</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- add purchase item modal -->
+
+<?php
+    $sql_paid_expense = "SELECT * FROM expenses";
+    $result_paid_expense = mysqli_query($conn, $sql_paid_expense);
+    if($result_paid_expense) {
+        while($row_paid_expense = mysqli_fetch_assoc($result_paid_expense)) {
+?>
+            <div class="modal fade" id="paid_expenses_modal_<?php echo $row_paid_expense['id']; ?>" tabindex="-1" aria-labelledby="paid_expenses_modal_label" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="paid_expenses_modal_label">Confirm Paid Expenses</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to mark this expense as paid?
+                            <strong><?php echo $row_paid_expense['item_name']; ?></strong>
+                            <form action="../../assets/php_script/update_expense_status.php" method="post">
+                                <input type="hidden" name="item_name" value="<?php echo $row_paid_expense['item_name']; ?>">
+                                <input type="hidden" name="id" value="<?php echo $row_paid_expense['id']; ?>">
+                                <input type="hidden" name="quantity" value="<?php echo $row_paid_expense['quantity']; ?>">
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary" id="confirm_paid_expense_btn">Yes, Mark as Paid</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<?php
+        }
+    }
+?>

@@ -50,6 +50,13 @@
                 // putting unique id for booking details
                 $('#booking_details_filter input[type="search"]').attr('id', 'booking_searchInput');
 
+                $('#no_operator_booking').DataTable({
+                    responsive: {
+                        details: true
+                    }
+                })
+                $('#no_operator_booking_filter input[type="search"]').attr('id', 'no_operator_booking_searchInput');
+
                 $('#transaction_details').DataTable({
                     responsive: {
                         details: true

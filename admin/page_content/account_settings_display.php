@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="col-lg-9 col-sm-11 px-5">
-                    <div class="row border">
+                    <div class="row shadow">
                         <h4 class="bg-secondary bg-opacity-25 border-bottom">Personal Information</h4>
                         <div class="col-lg-5 col-sm-11">
                             <h5><strong>Name: </strong> <?php echo $row['name']; ?></h5>

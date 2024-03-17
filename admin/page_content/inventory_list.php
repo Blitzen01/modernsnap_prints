@@ -12,7 +12,7 @@
                 <div class="col-lg-2 col-md-6 col-sm-12 mb-2">
                     <div class="card shadow">
                         <?php echo $row['item']; ?>
-                        <span><strong class="fs-4"><?php echo $row['quantity']; ?></strong></span>
+                        <span><strong class="fs-4"><?php echo $row['quantity']; ?></strong> <?php echo $row['unit']; ?></span>
                         <button class="border btn-midnight-blue" id="update_item<?php echo $row['id']; ?>" data-bs-toggle="modal" data-bs-target="#update_item<?php echo $row['id']; ?>_modal">
                             update item
                         </button>

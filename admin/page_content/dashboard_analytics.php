@@ -36,29 +36,46 @@
             $totalYearlyBookings = 0;
             $totalYearlyIncome = 0;
         }
+
+        // Monthly expenses query
+        $monthlyExpensesQuery = "SELECT SUM(total) AS totalMonthlyExpenses FROM expenses WHERE MONTH(date_purchase) = '$currentMonth' AND YEAR(date_purchase) = '$currentYear'";
+        $result = mysqli_query($conn, $monthlyExpensesQuery);
+        $totalMonthlyExpenses = 0;
+
+        if ($result) {
+            $row = mysqli_fetch_assoc($result);
+            $totalMonthlyExpenses = $row['totalMonthlyExpenses'];
+        }
+
+        // Yearly expenses query
+        $yearlyExpensesQuery = "SELECT SUM(total) AS totalYearlyExpenses FROM expenses WHERE YEAR(date_purchase) = '$currentYear'";
+        $result = mysqli_query($conn, $yearlyExpensesQuery);
+        $totalYearlyExpenses = 0;
+
+        if ($result) {
+            $row = mysqli_fetch_assoc($result);
+            $totalYearlyExpenses = $row['totalYearlyExpenses'];
+        }
     ?>
     
     <h4 class="mt-3 mb-3">Monthly Monitoring</h4>
     <div class="row mb-5">
         <div class="col-lg-4 col-sm-12 mb-2">
             <div class="card shadow bg-info bg-opacity-75">
-                Total Bookings
-                <span class="border-bottom"><strong class="fs-4"><?php echo $totalBookings; ?></strong></span>
-                <button class="nav-link border-0 bg-info text-dark">See more</button>
+                <span class="bg-info">Total Bookings</span>
+                <span class="border-top"><strong class="fs-4"><?php echo $totalBookings; ?></strong></span>
             </div>
         </div>
         <div class="col-lg-4 col-sm-12 mb-2">
             <div class="card shadow bg-danger bg-opacity-75">
-                Total Expences
-                <span class="border-bottom"><strong class="fs-4">&#8369;</strong></span>
-                <button class="nav-link border-0 bg-danger text-dark">See more</button>
+                <span class="bg-danger">Total Expenses</span>
+                <span class="border-top"><strong class="fs-4">&#8369;<?php echo number_format($totalMonthlyExpenses); ?></strong></span>
             </div>
         </div>
         <div class="col-lg-4 col-sm-12 mb-2">
             <div class="card shadow bg-success bg-opacity-75">
-                Total Income
-                <span class="border-bottom"><strong class="fs-4">&#8369;<?php echo $totalIncome; ?></strong></span>
-                <button class="nav-link border-0 bg-success text-dark">See more</button>
+                <span class="bg-success">Total Income</span>
+                <span class="border-top"><strong class="fs-4">&#8369;<?php echo number_format($totalIncome); ?></strong></span>
             </div>
         </div>
     </div>
@@ -67,23 +84,20 @@
     <div class="row mb-5">
         <div class="col-lg-4 col-sm-12 mb-2">
             <div class="card shadow bg-warning bg-opacity-75">
-                Total Bookings
-                <span class="border-bottom"><strong class="fs-4"><?php echo $totalYearlyBookings; ?></strong></span>
-                <button class="nav-link border-0 bg-warning text-dark">See more</button>
+                <span class="bg-warning">Total Bookings</span>
+                <span class="border-top"><strong class="fs-4"><?php echo $totalYearlyBookings; ?></strong></span>
             </div>
         </div>
         <div class="col-lg-4 col-sm-12 mb-2">
             <div class="card shadow bg-primary bg-opacity-75">
-                Total Expences
-                <span class="border-bottom"><strong class="fs-4">&#8369;</strong></span>
-                <button class="nav-link border-0 bg-primary text-dark">See more</button>
+                <span class="bg-primary">Total Expenses</span>
+                <span class="border-top"><strong class="fs-4">&#8369;<?php echo number_format($totalYearlyExpenses); ?></strong></span>
             </div>
         </div>
         <div class="col-lg-4 col-sm-12 mb-2">
             <div class="card shadow bg-secondary bg-opacity-75">
-                Total Income
-                <span class="border-bottom"><strong class="fs-4">&#8369;<?php echo $totalYearlyIncome; ?></strong></span>
-                <button class="nav-link border-0 bg-secondary text-dark">See more</button>
+                <span class="bg-secondary">Total Income</span>
+                <span class="border-top"><strong class="fs-4">&#8369;<?php echo number_format($totalYearlyIncome); ?></strong></span>
             </div>
         </div>
     </div>
