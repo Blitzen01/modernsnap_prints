@@ -9,7 +9,7 @@
     <div class="modal fade" id="update_item<?php echo $row['id']; ?>_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-midnight-blue text-light">
                     <h1 class="modal-title fs-5" id="exampleModalLabel"><?php echo $row['item']; ?></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -37,7 +37,7 @@
 <div class="modal fade" id="invetory_new_item_modal" tabindex="-1" aria-labelledby="invetory_new_item_modal_label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-midnight-blue text-light">
                 <h1 class="modal-title fs-5" id="invetory_new_item_modal_label">New Item</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -54,7 +54,7 @@
                     </div>
                     
                     <div class="mb-3">
-                        <select name="item_unit" id="item_unit">
+                        <select class="form-select" name="item_unit" id="item_unit">
                             <option value="default" disabled selected>Default</option>
                             <option value="pack">Pack</option>
                             <option value="pc(s)">Piece</option>
@@ -75,7 +75,7 @@
 <div class="modal fade" id="remove_item_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-midnight-blue text-light">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Select Item to Remove</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -121,7 +121,7 @@
             <div class="modal fade" id="<?php echo $row['service']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header bg-midnight-blue text-light">
                             <h1 class="modal-title fs-5" id="exampleModalLabel"><?php echo strtoupper($row['service']); ?></h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
@@ -205,7 +205,7 @@
             <div class="modal fade" id="customize_booking" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header bg-midnight-blue text-light">
                             <h1 class="modal-title fs-5" id="exampleModalLabel">CUSTOMIZE BOOKING</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
@@ -290,7 +290,7 @@
             <div class="modal fade" id="booking_operator_<?php echo $row['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header bg-midnight-blue text-light">
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Select Booking Operator</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
@@ -463,10 +463,11 @@
 </div>
 <!-- add operator modal -->
 
+<!-- update profile picture -->
 <div class="modal fade" id="update_profile_picture_modal" tabindex="-1" aria-labelledby="update_profile_picture_modal_label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-midnight-blue text-light">
                 <h1 class="modal-title fs-5" id="update_profile_picture_modal_label">Upload Picture</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -484,12 +485,13 @@
         </div>
     </div>
 </div>
+<!-- update profile picture -->
 
 <!-- remove operator -->
 <div class="modal fade" id="remove_operator_modal" tabindex="-1" aria-labelledby="remove_operator_modal_label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-midnight-blue text-light">
                 <h1 class="modal-title fs-5" id="remove_operator_modal_label">Remove Operator</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -527,7 +529,7 @@
 <div class="modal fade" id="update_profile_information_modal_label" tabindex="-1" aria-labelledby="update_profile_information_modal_label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-midnight-blue text-light">
                 <h1 class="modal-title fs-5" id="update_profile_information_modal_label">Upadate Profile Information</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -588,7 +590,7 @@
 <div class="modal fade" id="change_password_modal" tabindex="-1" aria-labelledby="change_password_modal_label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-midnight-blue text-light">
                 <h1 class="modal-title fs-5" id="change_password_modal_label">Change Password</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -631,7 +633,7 @@
     <div class="modal fade" id="update<?php echo $row['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-midnight-blue text-light">
                 <h1 class="modal-title fs-5" id="exampleModalLabel"><?php echo strtoupper($row['service']); ?></h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -661,7 +663,7 @@
 <div class="modal fade" id="add_new_service" tabindex="-1" aria-labelledby="add_new_service_label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-midnight-blue text-light">
                 <h1 class="modal-title fs-5" id="add_new_service">Add new Service</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -687,7 +689,7 @@
 <div class="modal fade" id="add_new_package" tabindex="-1" aria-labelledby="add_new_package_label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-midnight-blue text-light">
                 <h1 class="modal-title fs-5" id="add_new_package_label">Add new Package</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -733,7 +735,7 @@
 <div class="modal fade" id="remove_package" tabindex="-1" aria-labelledby="remove_package_label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-midnight-blue text-light">
                 <h1 class="modal-title fs-5" id="remove_package">Remove Package</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -770,7 +772,7 @@
 <div class="modal fade" id="remove_service" tabindex="-1" aria-labelledby="remove_service_label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-midnight-blue text-light">
                 <h1 class="modal-title fs-5" id="remove_service">Remove Service</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -807,7 +809,7 @@
 <div class="modal fade" id="upload_photo_to_gallery_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-midnight-blue text-light">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Select File to upload</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -847,7 +849,7 @@
 <div class="modal fade" id="remove_photo_modal" tabindex="-1" aria-labelledby="remove_photo_modal_label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-midnight-blue text-light">
                 <h1 class="modal-title fs-5" id="remove_photo_modal_label">Remove Photo</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -935,6 +937,7 @@
 </div>
 <!-- add purchase item modal -->
 
+<!-- expenses paid -->
 <?php
     $sql_paid_expense = "SELECT * FROM expenses";
     $result_paid_expense = mysqli_query($conn, $sql_paid_expense);
@@ -944,7 +947,7 @@
             <div class="modal fade" id="paid_expenses_modal_<?php echo $row_paid_expense['id']; ?>" tabindex="-1" aria-labelledby="paid_expenses_modal_label" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header bg-midnight-blue text-light">
                             <h5 class="modal-title" id="paid_expenses_modal_label">Confirm Paid Expenses</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
@@ -968,3 +971,63 @@
         }
     }
 ?>
+<!-- expenses paid -->
+
+<!-- add new todo list -->
+<div class="modal fade" id="new_todo_list_modal" tabindex="-1" aria-labelledby="new_todo_list_label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-midnight-blue text-light">
+        <h1 class="modal-title fs-5" id="new_todo_list_label">Add New List</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="../../assets/php_script/add_to_do_list.php" method="post">
+            <div class="mb-3">
+                <label for="new_todo_list">New To Do List</label>
+                <textarea class="form-control" type="text" name="new_todo_list" id="new_todo_list" rows="5" style="resize: none;" required placeholder="Insert to do list here."></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-midnight-blue">Add</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- add new todo list -->
+
+<!-- done to do list -->
+<?php
+    $sql = "SELECT * FROM to_do_list";
+    $result = mysqli_query($conn, $sql);
+
+    if($result) {
+        while($row = mysqli_fetch_assoc($result)) {
+?>
+            <div class="modal fade" id="done_todo_<?php echo $row['id']; ?>" tabindex="-1" aria-labelledby="done_todo_<?php echo $row['id']; ?>_label" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-midnight-blue text-light">
+                            <h1 class="modal-title fs-5" id="done_todo_<?php echo $row['id']; ?>_label">Are you sure this list is done?</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h3 class="text-center"><?php echo strtoupper($row['list']); ?></h3>
+                            <form action="../../assets/php_script/done_to_do_list.php" method="post">
+                                <input type="hidden" value="<?php echo $row['id']; ?>" name="to_do_list_id" id="to_do_list_id">
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-midnight-blue">Done</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<?php       
+        }
+    }
+?>
+<!-- done to do list -->

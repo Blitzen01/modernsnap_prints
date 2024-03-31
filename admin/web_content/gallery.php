@@ -32,7 +32,7 @@
                     <?php include '../../navigation/admin_sidebar.php'; ?>
                 </div>
                 <div id="admin_content" class="col py-3">
-                    <h3 id="analytics" class="ps-3">Gallery</h3>
+                    <h3 id="analytics" class="ps-3"><i class="fa-solid fa-image-portrait"></i> Gallery</h3>
                     <section class="my-2">
                         <div class="mx-3">
                             <button class="btn btn-midnight-blue" data-bs-toggle="modal" data-bs-target="#upload_photo_to_gallery_modal">

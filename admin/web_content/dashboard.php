@@ -27,14 +27,22 @@
                     <?php include '../../navigation/admin_sidebar.php'; ?>
                 </div>
                 <div id="admin_content" class="col py-3">
-                    <h3 id="analytics" class="ps-3">Analytics</h3>
+                    <h3 id="analytics" class="ps-3"><i class="fa-solid fa-chart-simple"></i> Analytics</h3>
                     <?php include '../page_content/dashboard_analytics.php'; ?>
 
-                    <h3 id="collection" class="ps-3">Collection</h3>
+                    <h3 id="collection" class="ps-3"><i class="fa-solid fa-box-archive"></i> Collection</h3>
                     <a href="inventory.php" class="btn p-2 border ms-5 my-2"><i class="fa-solid fa-pen-clip"></i> Update collections</a>
                     <?php include '../page_content/dashboard_collection.php'; ?>
                 </div>
             </div>
         </div>
+
+        <Script>
+            $(document).ready(function () {
+                $("#satisfaction_rating").DataTable({
+                    responsive: true,
+                })
+            });
+        </Script>
     </body>
 </html>

@@ -27,7 +27,7 @@
                     <?php include '../../navigation/admin_sidebar.php'; ?>
                 </div>
                 <div id="admin_content" class="col py-3">
-                    <h3 id="analytics" class="ps-3">Operator</h3>
+                    <h3 id="analytics" class="ps-3"><i class="fa-regular fa-id-badge"></i> Operator</h3>
                     <?php include '../page_content/operator_list.php'; ?>
                 </div>
             </div>

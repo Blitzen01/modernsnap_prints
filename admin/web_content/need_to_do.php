@@ -27,11 +27,28 @@
                     <?php include '../../navigation/admin_sidebar.php'; ?>
                 </div>
                 <div id="admin_content" class="col py-3">
-                    <h3 id="analytics" class="ps-3">To Do</h3>
+                    <h3 id="analytics" class="ps-3"><i class="fa-solid fa-list-check"></i> To Do</h3>
                     <section class="my-2">
-                        <p>Dashboard Responsiveness</p>
-                        <span>buttons and displays</span><br>
-                        <span>total expences display</span>
+                        <button class="btn btn-midnight-blue ms-3" data-bs-toggle="modal" data-bs-target="#new_todo_list_modal"><i class="fa-solid fa-plus"></i> New List</button>
+                        <div class="container">
+                            <div class="m-3">
+                                <?php
+                                    $sql = "SELECT * FROM to_do_list";
+                                    $result = mysqli_query($conn, $sql);
+
+                                    if($result) {
+                                        while($row = mysqli_fetch_assoc($result)) {
+                                ?>
+                                            <div class="mb-3">
+                                                <button class="border btn-midnight-blue me-2" data-bs-toggle="modal" data-bs-target="#done_todo_<?php echo $row['id']; ?>">Done</button>
+                                                <span><?php echo strtoupper($row['list']); ?></span>
+                                            </div>
+                                <?php       
+                                        }
+                                    }
+                                ?>
+                            </div>
+                        </div>
                     </section>
                 </div>
             </div>

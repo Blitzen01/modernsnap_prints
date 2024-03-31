@@ -54,7 +54,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $sql = "INSERT INTO gallery (service, file_name) VALUES ('$serviceName', '$uniqueFileName')";
 
                 if ($conn->query($sql) === TRUE) {
-                    echo "New record inserted successfully.";
+                    $redirectUrl = "../../admin/web_content/gallery.php";
+                    // Redirect back to the previous window using window.location
+                    echo '<script type="text/javascript">';
+                    echo 'window.location.href = "' . $redirectUrl . '";';
+                    echo '</script>';
                 } else {
                     echo "Error: " . $sql . "<br>" . $conn->error;
                 }

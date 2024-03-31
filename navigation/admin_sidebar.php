@@ -71,6 +71,12 @@
     $displayStyle = ($permission === 'owner') ? 'block' : 'none';
 ?>
 
+<link rel="stylesheet" href="../../assets/style/admin_style.css">
+<link rel="stylesheet" href="../../assets/style/evo-calendar.midnight-blue.min.css">
+<link rel="stylesheet" href="../../assets/style/evo-calendar.min.css">
+
+<script src="../../assets/script/evo-calendar.min.js"></script>
+
 <div id="sidebar">
     <div class="text-center border-bottom border-secondary">
         <img id="sidebar_logo" src="../../assets/image/sidebar_logo_no_bg.png" alt="" srcset="">
@@ -150,6 +156,16 @@
                     </div>
                 </div>
             </a>
+            <a href="../web_content/need_to_do.php" class="nav-link d-flex">
+                <div class="row">
+                    <div class="col-1">
+                        <div class=""><i class="fa-solid fa-clipboard"></i></div>
+                    </div>
+                    <div class="col">
+                        <div><span>To Do List</span></div>
+                    </div>
+                </div>
+            </a>
         </div>
         <a href="../web_content/gallery.php" class="nav-link d-flex">
             <div class="row">
@@ -168,16 +184,6 @@
                 </div>
                 <div class="col">
                     <div><span>Account Settings</span></div>
-                </div>
-            </div>
-        </a>
-        <a href="../web_content/need_to_do.php" class="nav-link d-flex">
-            <div class="row">
-                <div class="col-1">
-                    <div class="">!!!</div>
-                </div>
-                <div class="col">
-                    <div><span>To Do List</span></div>
                 </div>
             </div>
         </a>
@@ -234,6 +240,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../web_content/operator.php">
                             <i class="fa-solid fa-address-card"></i> Operator
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../web_content/need_to_do.php">
+                            <i class="fa-solid fa-clipboard"></i> To Do List
                         </a>
                     </li>
                 </div>

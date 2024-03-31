@@ -27,7 +27,7 @@
                     <?php include '../../navigation/admin_sidebar.php'; ?>
                 </div>
                 <div id="admin_content" class="col py-3">
-                    <h3 class="ps-3">Inventory</h3>
+                    <h3 class="ps-3"><i class="fa-solid fa-warehouse"></i> Inventory</h3>
                     <?php include '../page_content/inventory_list.php'; ?>
                 </div>
             </div>

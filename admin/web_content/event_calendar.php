@@ -25,7 +25,7 @@
                     <?php include '../../navigation/admin_sidebar.php'; ?>
                 </div>
                 <div id="admin_content" class="col py-3">
-                    <h3 class="ps-3">Event Calendar</h3>
+                    <h3 class="ps-3"><i class="fa-solid fa-calendar-week"></i> Event Calendar</h3>
                     <section class="my-2">
                         <div id="calendar"></div>
                     </section>
@@ -35,7 +35,6 @@
 
         <script src="../../assets/script/admin_script.js"></script>
         <script>
-            var sampleData = "<h2>Kunyari ito yung laman</h2>para makita kung ano itsura";
             $("#calendar").evoCalendar({
                 theme: 'Midnight Blue',
                 calendarEvents: [

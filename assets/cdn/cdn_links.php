@@ -8,9 +8,6 @@
 
 <!-- Add the evo-calendar.css for styling -->
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css"/>
-<link rel="stylesheet" href="../../assets/style/admin_style.css">
-<link rel="stylesheet" href="../../assets/style/evo-calendar.midnight-blue.min.css">
-<link rel="stylesheet" href="../../assets/style/evo-calendar.min.css">
 <!-- Add the evo-calendar.css for styling -->
 
 <!-- Add jQuery library (required) -->
@@ -19,7 +16,6 @@
 
 <!-- Add the evo-calendar.js for.. obviously, functionality! -->
 <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
-<script src="../../assets/script/evo-calendar.min.js"></script>
 <!-- Add the evo-calendar.js for.. obviously, functionality! -->
 
 <!-- Data table style-->
@@ -41,3 +37,12 @@
 <script defer src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
 <script defer src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js" type="text/javascript"></script>
 <!-- Data table script -->
+
+
+<!-- aos = Animate On Scroll style -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- aos = Animate On Scroll style -->
+
+<!-- char js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- char js -->

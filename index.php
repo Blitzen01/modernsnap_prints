@@ -16,7 +16,7 @@
         <div class="text-center">
             <button class="btn border border-2 border-primary border-2 text-primary m-2"><a class="nav-link fs-1" href="admin/index.php">ADMIN</a></button>
             <br>
-            <button class="btn border border-2 border-primary border-2 text-primary m-2"><a class="nav-link fs-1" href="user/index.php">USER</a></button>
+            <button class="btn border border-2 border-primary border-2 text-primary m-2"><a class="nav-link fs-1" href="user/index.php">CLIENT</a></button>
         </div>
     </body>
 </html>

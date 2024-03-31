@@ -27,7 +27,7 @@
                     <?php include '../../navigation/admin_sidebar.php'; ?>
                 </div>
                 <div id="admin_content" class="col py-3">
-                    <h3 class="ps-3">Pricing</h3>
+                    <h3 class="ps-3"><i class="fa-solid fa-tags"></i> Pricing</h3>
                     <?php include '../page_content/service_list.php'; ?>
                     <?php include '../page_content/package_pricing_list.php'; ?>
                 </div>

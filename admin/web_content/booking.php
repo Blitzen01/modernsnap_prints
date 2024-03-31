@@ -27,13 +27,13 @@
                     <?php include '../../navigation/admin_sidebar.php'; ?>
                 </div>
                 <div id="admin_content" class="col py-3">
-                    <h3 class="ps-3">Bookings</h3>
+                    <h3 class="ps-3"><i class="fa-regular fa-bookmark"></i> Bookings</h3>
                     <?php include '../page_content/create_booking.php'; ?>
 
-                    <h3 class="ps-3">Booked Events</h3>
+                    <h3 class="ps-3"><i class="fa-solid fa-bookmark"></i> Booked Events</h3>
                     <?php include '../page_content/booked_events.php'; ?>
 
-                    <h3 class="ps-3">Transaction History</h3>
+                    <h3 class="ps-3"><i class="fa-solid fa-book-open"></i> Transaction History</h3>
                     <?php include '../page_content/transaction_history.php'; ?>
                 </div>
             </div>

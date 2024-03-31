@@ -29,7 +29,7 @@
                     <?php include '../../navigation/admin_sidebar.php'; ?>
                 </div>
                 <div id="admin_content" class="col py-3">
-                    <h3 id="analytics" class="ps-3">Account Settings</h3>
+                    <h3 id="analytics" class="ps-3"><i class="fa-solid fa-user-gear"></i> Account Settings</h3>
                     <?php include '../page_content/account_settings_display.php'; ?>
                 </div>
             </div>
